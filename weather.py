@@ -27,7 +27,7 @@ def show_error():
 ...# Weather fetch function
 def get_weather(city):
     try:
-        API_KEY = "your_openweathermap_api_key"  # Replace with your real API key
+        API_KEY = "4d8fb5b93d4af21d66a2948710284366"  # Replace with your real API key
         URL = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
         response = requests.get(URL)
         if response.status_code == 200:
