@@ -24,7 +24,7 @@ weather_icons = {
 def show_error():
     st.error("💥 Oops! Weather server dodged our request like a ninja. Try again or check the city name.")
 
-...# Weather fetch function
+# Weather fetch function
 def get_weather(city):
     try:
         API_KEY = "4d8fb5b93d4af21d66a2948710284366"  # Replace with your real API key
@@ -37,32 +37,31 @@ def get_weather(city):
     except:
         return None
 
-... 
-... # UI
-... st.set_page_config(page_title="Weather Wizard 🌦️", page_icon="🌦️")
-... st.title("🧙‍♂️ Weather Forecasting Wizard")
-... st.write("Enter a city name to summon the latest weather insights!")
-... 
-... city = st.text_input("📍 City Name", "Bangalore")
-... 
-... if st.button("🔍 Get Forecast"):
-...     data = get_weather(city)
-...     
-...     if data:
-...         main = data['weather'][0]['main']
-...         desc = data['weather'][0]['description'].capitalize()
-...         temp = data['main']['temp']
-...         feels = data['main']['feels_like']
-...         humidity = data['main']['humidity']
-...         wind = data['wind']['speed']
-...         icon = weather_icons.get(main, "🌈")
-...         
-...         st.markdown(f"### {icon} Weather in **{city.title()}**")
-...         st.write(f"**Condition:** {desc}")
-...         st.write(f"**Temperature:** {temp}°C (Feels like {feels}°C)")
-...         st.write(f"**Humidity:** {humidity}%")
-...         st.write(f"**Wind Speed:** {wind} m/s")
-...     else:
-...         show_error()
-... 
-... st.caption("🔁 Built with the same spirit as Emotion Detector 3.0 – resilient and playful!")
+# UI
+st.set_page_config(page_title="Weather Wizard 🌦️", page_icon="🌦️")
+st.title("🧙‍♂️ Weather Forecasting Wizard")
+st.write("Enter a city name to summon the latest weather insights!")
+
+city = st.text_input("📍 City Name", "Bangalore")
+
+if st.button("🔍 Get Forecast"):
+    data = get_weather(city)
+    
+    if data:
+        main = data['weather'][0]['main']
+        desc = data['weather'][0]['description'].capitalize()
+        temp = data['main']['temp']
+        feels = data['main']['feels_like']
+        humidity = data['main']['humidity']
+        wind = data['wind']['speed']
+        icon = weather_icons.get(main, "🌈")
+        
+        st.markdown(f"### {icon} Weather in **{city.title()}**")
+        st.write(f"**Condition:** {desc}")
+        st.write(f"**Temperature:** {temp}°C (Feels like {feels}°C)")
+        st.write(f"**Humidity:** {humidity}%")
+        st.write(f"**Wind Speed:** {wind} m/s")
+    else:
+        show_error()
+
+st.caption("🔁 Built with the same spirit as Emotion Detector 3.0 – resilient and playful!")
