@@ -24,18 +24,19 @@ weather_icons = {
 def show_error():
     st.error("💥 Oops! Weather server dodged our request like a ninja. Try again or check the city name.")
 
-... # Weather fetch function
-... def get_weather(city):
-...     try:
-...         API_KEY = "4d8fb5b93d4af21d66a2948710284366"  # Replace with your real API key
-...         URL = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
-...         response = requests.get(URL)
-...         if response.status_code == 200:
-...             return response.json()
-...         else:
-...             return None
-...     except:
-...         return None
+...# Weather fetch function
+def get_weather(city):
+    try:
+        API_KEY = "your_openweathermap_api_key"  # Replace with your real API key
+        URL = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
+        response = requests.get(URL)
+        if response.status_code == 200:
+            return response.json()
+        else:
+            return None
+    except:
+        return None
+
 ... 
 ... # UI
 ... st.set_page_config(page_title="Weather Wizard 🌦️", page_icon="🌦️")
